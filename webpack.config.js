@@ -48,6 +48,11 @@ const config = {
           //     plugins: ["@emotion/babel-plugin"],
           //   },
           // },
+          env: {
+            development: {
+              plugins: [require.resolve("react-refresh/babel")],
+            },
+          },
         },
         exclude: path.join(__dirname, "node_modules"),
       },
