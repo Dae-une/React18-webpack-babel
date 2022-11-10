@@ -74,7 +74,10 @@ node_modules 내부의 소스는 대부분 라이브러리가 배포될 때 이�
 다양한 플러그인들이 있는데 이를 사용하면 효과적으로 번들링을 할 수 있다.<br/>
 
 
-
+## devServer
+***port*** 는 개발 서버인 localhost의 포트를 설정가능하다.<br/>
+***historyApiFallback***은 react-router같은 것을 쓸 때, 새로고침시 Cannot get/signup 이런 에러를 막아준다. [조금 더자세한 내용은](https://basemenks.tistory.com/270)<br/>
+***publicPath***는 웹팩 데브서버가 번들한 결과물이 위치하는 경로인데, 보통 output에 위치한 pulbichPath와 동일한 위치로 적는다.<br/>
 
 
 
