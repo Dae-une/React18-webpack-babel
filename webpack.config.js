@@ -1,9 +1,9 @@
 const webpack = require("webpack");
 const path = require("path");
 const ESlintPlugin = require("eslint-webpack-plugin");
-const dotenv = require("dotenv");
 const Dotenv = require("dotenv-webpack");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 const envPath = `./.env.${isDevelopment ? "development" : "production"}`;
@@ -11,6 +11,7 @@ const envPath = `./.env.${isDevelopment ? "development" : "production"}`;
 const config = {
   name: "React18-webpack-babel-setting",
   mode: isDevelopment ? "development" : "production",
+  devtool: isDevelopment ? "inline-source-map" : "hidden-source-map",
   resolve: {
     extensions: [".js", ".jsx", ".json"],
   },
@@ -58,6 +59,7 @@ const config = {
   },
   plugins: [
     new webpack.EnvironmentPlugin({ NODE_ENV: isDevelopment ? "development" : "production" }),
+    new CleanWebpackPlugin(),
     new Dotenv({ path: envPath }),
     new ESlintPlugin(),
   ],
