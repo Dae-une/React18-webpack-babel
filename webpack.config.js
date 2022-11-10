@@ -10,15 +10,16 @@ const envPath = `./.env.${isDevelopment ? "development" : "production"}`;
 
 const config = {
   name: "React18-webpack-babel-setting",
-  mode: isDevelopment ? "hidden-source-map" : "inline-source-map",
+  mode: isDevelopment ? "development" : "production",
   resolve: {
     extensions: [".js", ".jsx", ".json"],
   },
-  alias: {
-    "@hooks": path.resolve(__dirname, "hooks"),
-    "@componenets": path.resolve(__dirname, "components"),
-    "@pages": path.resolve(__dirname, "pages"),
-  },
+  // alias: {
+  //   "@hooks": path.resolve(__dirname, "hooks"),
+  //   "@componenets": path.resolve(__dirname, "components"),
+  //   "@pages": path.resolve(__dirname, "pages"),
+  //   "@layouts": path.resolve(__dirname, "layouts"),
+  // },
   entry: {
     app: "./client",
   },
@@ -67,15 +68,15 @@ const config = {
   },
   devServer: {
     historyApiFallback: true,
-    port: 3090,
+    port: 3090, //3090 포트로 열기
     devMiddleware: { publicPath: "/dist/" },
     static: { directory: path.resolve(__dirname) },
-    proxy: {
-      "/api/": {
-        target: "http://localhost:3095",
-        changeOrigin: true,
-      },
-    },
+    // proxy: {
+    //   "/api/": {
+    //     target: "http://localhost:3095",
+    //     changeOrigin: true,
+    //   },
+    // },
   },
 };
 if (isDevelopment && config.plugins) {
