@@ -40,6 +40,14 @@ const config = {
             ],
             "@babel/preset-react",
           ],
+          plugins: [
+            [
+              "@babel/plugin-transform-runtime",
+              {
+                corejs: 3,
+              },
+            ],
+          ],
           // env: { // emotions 을 쓸 경우
           //   development: {
           //     plugins: [["@emotion/babel-plugin", { sourceMap: true }], require.resolve("react-refresh/babel")],
